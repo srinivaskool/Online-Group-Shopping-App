@@ -1,24 +1,16 @@
-# Imarcat
-E-marketting website connecting the companies and social media influencvers who want to publicise the products.
+# Online-Group-Shopping-App
 
-Sends automatic mail by SES and Lambda when the S3 bucket is modified. Also recognizes the objects in the image uploaded.     
+Here is a flutter app that provides you a group shopping option. The group can have the features like chatting, sell products and buy products from each other. 
 <br>
 
-<p align="center">
-  <img  src="README-IMAGES\res3.PNG" >  
-</p>
+[APK Download link](https://drive.google.com/file/d/1y-7hjTXKPsg6oJVVdNHdwTKvHn9RPZf9/view?usp=sharing)
 
-Deployed on Amplify - [Live Demo](https://master.d1i2p3fuorz4wv.amplifyapp.com/)
-
-AWS S3 file Upload URL -
-https://dvp1syfwe3.execute-api.eu-west-1.amazonaws.com/dev/image-upload
 
 
 ### Table of Contents
 
 - [Description](#description)
-- [Process](#analysis)
-- [Results](#results)
+- [Demo](#demo)
 - [Project Layout](#project-layout)
 - [References](#references)
 - [Author Info](#author-info)
@@ -29,60 +21,29 @@ https://dvp1syfwe3.execute-api.eu-west-1.amazonaws.com/dev/image-upload
 
 <br>
 
-Using AWS services, I built a serverless portal in which we can upload an image and the image will be store in an S3 bucket and showed on the portal page, Also the admin will get the mail which includes the image attachment along with the 3 things detected in the image with confidence level and also the details of image upload like name of the image, time of upload, Ip address.  
+Users after registering or login in by Gmail can upload products with images and set their price after log in. There is a group chatting option and messages are completely encrypted. When u want to shop u can select the items and push them into the cart then if you want to buy some items afterward u can send them to your wishlist and place the order for the remaining items. You can store multiple addresses for the same logged-in account and for payment we use Razorpay gateway. The items on your orders page can be reordered with a click.
 
-### Services Used
+### Build With
 
-- AWS Lambda
-- AWS S3
-- AWS SES
-- rekognition
-- AWS Amplify
+- Flutter
+- Firebase
 
 ### For Execution
-You need an AWS account. Then clone the repository and create Lambda and S3 buckets with the same names given in the code. Then run npm install and then run the app using npm start to upload the image.
+Clone the repository and open it in android studio and you need to have the firebase setup as mentioned in the code.
 
----
-
-## Process
-
-The image is uploaded to the S3 bucket through the react website, the trigger will call the lambda function, and using SES we send a mail to admin with image attachment and top 3 objects detected in that image.
+## Demo
 <br>
-
 <p align="center">
-  <img  src="README-IMAGES\Process-1.png" >  
-</p>
-
----
-
-## Results
-### Example 1
-When you upload the below image
-<p align="center">
-  <img  src="README-IMAGES\photo.jpg" >  
-</p>
-The Received mail is as follows. 
-<p align="center">
-  <img  src="README-IMAGES\res2.PNG" >  
+  <img  src="README-IMAGES\Demo-1.png" >  
 </p>
 <br>
-
-### Example 2
-When you upload this image
 <p align="center">
-  <img  src="README-IMAGES\pexels-photo-5082572.jpeg" height="200" >  
+  <img  src="README-IMAGES\Demo-2.png" >  
 </p>
-The Received mail is as follows. 
+<br>
 <p align="center">
-  <img  src="README-IMAGES\res1.PNG" >  
+  <img  src="README-IMAGES\Demo-3.png">  
 </p>
-
-### Example 3
-When you delete above image from the S3 bucket
-<p align="center">
-  <img  src="README-IMAGES\delete_result.PNG" >  
-</p>
-
 
 #### [Back To The Top](#AWS-Image-Upload-and-Recognize-Objects)
 
@@ -90,36 +51,46 @@ When you delete above image from the S3 bucket
 
 ## Project Layout
 
+Including only of lib folder 
 ```
-AWS-Image-Upload-and-Recognize-Objects
-├─ create_email_recognize.py
-├─ delete_email.py
-├─ lambdas
-│  ├─ common
-│  │  └─ S3.js
-│  └─ endpoints
-│     ├─ imageUpload.js
-│     └─ sendEmail.js
-├─ package-lock.json
-├─ package.json
-├─ README-IMAGES
-│  ├─ pexels-photo-5082572.jpeg
-│  ├─ photo.jpg
-│  ├─ res1.PNG
-│  ├─ res2.PNG
-│  └─ res3.PNG
-├─ README.md
-├─ serverless.yml
-└─ webpack.config.js
-
+├─ lib
+│  ├─ components
+│  │  ├─ AddressItem.dart
+│  │  ├─ CartCard.dart
+│  │  ├─ curve_clipper.dart
+│  │  ├─ custom_drawer.dart
+│  │  ├─ following_users.dart
+│  │  ├─ local_notification.dart
+│  │  ├─ offers_carousel.dart
+│  │  ├─ OrderCard.dart
+│  │  ├─ RoundButton.dart
+│  │  ├─ StoreCard.dart
+│  │  └─ WishListCard.dart
+│  ├─ constants.dart
+│  ├─ data
+│  │  └─ data.dart
+│  ├─ main.dart
+│  ├─ models
+│  │  ├─ Data.dart
+│  │  └─ offer.dart
+│  └─ screens
+│     ├─ AddItems.dart
+│     ├─ CartScreen.dart
+│     ├─ chat_screen.dart
+│     ├─ Checkoutscreen.dart
+│     ├─ login_screen.dart
+│     ├─ OrderScreen.dart
+│     ├─ registration_screen.dart
+│     ├─ store_screen.dart
+│     ├─ welcome_screen.dart
+│     └─ WishlistScreen.dart
 ```
-
 ---
 
 ## References
 
-- [AWS](https://aws.amazon.com/)
-
+- [Flutter](https://flutter.dev/)
+- [Firebase](https://firebase.google.com/)
 ---
 
 ## Author Info
